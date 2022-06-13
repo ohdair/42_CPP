@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/13 17:56:10 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/13 18:38:06 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/14 07:30:50 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void printUpperString(char **argv)
     std::string y("");
     for (int i = 1; argv[i]; i++)
         while (*argv[i])
-            y += toupper(*(argv[i]++));
+            y.push_back(toupper(*(argv[i]++)));
     std::cout << y << std::endl;
 } 
 
