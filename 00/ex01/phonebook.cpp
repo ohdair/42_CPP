@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:04:56 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/14 13:42:23 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/14 13:52:48 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void PhoneBook::AddContact() {
 }
 
 void PhoneBook::SearchMember() {
-    
+    std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|\n";
+    for (int i = indexNumber; i > indexNumber - 8 && i >= 0; i--) {
+
+    }
 }
