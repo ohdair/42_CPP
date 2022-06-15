@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:04:56 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/14 13:52:48 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:13:06 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ PhoneBook::PhoneBook() {
     indexNumber = 0;
 }
 
+PhoneBook::~PhoneBook(void) {}
+
 void PhoneBook::AddContact() {
     std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
 
-    std::cout << "Index : " << indexNumber + 1 << std::endl;
+    std::cout << "Index : " << (indexNumber + 1) % 8 << std::endl;
     std::cout << "First Name : ";
     std::getline(std::cin, firstName);
     std::cout << "Last Name : ";
@@ -30,17 +32,48 @@ void PhoneBook::AddContact() {
     std::getline(std::cin, phoneNumber);
     std::cout << "Darkest Secret : ";
     std::getline(std::cin, darkestSecret);
-    memberInfo[indexNumber].setFirstName(firstName);
-    memberInfo[indexNumber].setLastName(lastName);
-    memberInfo[indexNumber].setNickName(nickName);
-    memberInfo[indexNumber].setPhoneNumber(phoneNumber);
-    memberInfo[indexNumber].setDarkestSecret(darkestSecret);
+    memberInfo[indexNumber % 8].setFirstName(firstName);
+    memberInfo[indexNumber % 8].setLastName(lastName);
+    memberInfo[indexNumber % 8].setNickName(nickName);
+    memberInfo[indexNumber % 8].setPhoneNumber(phoneNumber);
+    memberInfo[indexNumber % 8].setDarkestSecret(darkestSecret);
     indexNumber++;
 }
 
-void PhoneBook::SearchMember() {
-    std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|\n";
-    for (int i = indexNumber; i > indexNumber - 8 && i >= 0; i--) {
+static void printContact(Contact memberInfo, int i) {
+	std::cout << "|";
+    std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << i + 1;
+	std::cout << "|";
+    std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << memberInfo.getFirstName();
+	std::cout << "|";
+    std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << memberInfo.getLastName();
+	std::cout << "|";
+    std::cout << std::setfill(' ') << std::setw(10);
+	std::cout << memberInfo.getNickName();
+	std::cout << "|\n";
+}
 
+static void printMember(Contact memberInfo) {
+    std::cout << "first name : " << memberInfo.getFirstName() << std::endl;
+    std::cout << "last name : " << memberInfo.getLastName() << std::endl;
+    std::cout << "nickname : " << memberInfo.getNickName() << std::endl;
+    std::cout << "phone number : " << memberInfo.getPhoneNumber() << std::endl;
+    std::cout << "darkest secret : " << memberInfo.getDarkestSecret() << std::endl;
+}
+
+void PhoneBook::SearchMember() {
+    std::string indexTmp;
+    std::cout << "|     INDEX| FIRSTNAME|  LASTNAME|  NICKNAME|\n";
+    for (int i = 0; i < indexNumber && i < 8; i++) {
+        printContact(memberInfo[i], i);
     }
+    std::cout << "Enter Index : ";
+    std::getline(std::cin, indexTmp);
+    if (indexTmp.length() == 1 && indexTmp[0] >= '1' && indexTmp[0] <= '8' && indexTmp[0] <= ('0' + indexNumber))
+        printMember(memberInfo[std::atoi(indexTmp.c_str()) - 1]);
+    else
+        std::cout << "[" << indexTmp << "] is invalid index!!\n";
 }

@@ -6,17 +6,17 @@
 #    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 08:00:03 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/14 13:24:23 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/06/15 16:12:31 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC		=	g++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	contact.cpp \
-			phonebook.cpp \
-
+SRCS	=	phonebook.cpp \
+			contact.cpp \
+			main.cpp
 OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	megaphone
+TARGET	=	phonebook
 SUBJECT	=	00
 
 LF			=	\e[1K\r$(NO_COLOR)
