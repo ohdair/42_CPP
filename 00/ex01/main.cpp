@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/15 13:26:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/15 16:08:34 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:51:58 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int main() {
         else if (input == "ADD") pb.AddContact();
         else if (input == "SEARCH") pb.SearchMember();
         else std::cout << "[" << input << "] is invalid command!!\n";
+        if (std::cin.eof())
+            break ;
     }
-    std::cout << "Exit" << std::endl;
+    std::cout << "\nExit" << std::endl;
 }

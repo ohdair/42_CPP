@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:04:56 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/15 16:13:06 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:57:34 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,24 @@ void PhoneBook::AddContact() {
     std::cout << "Index : " << (indexNumber + 1) % 8 << std::endl;
     std::cout << "First Name : ";
     std::getline(std::cin, firstName);
+    if (firstName == "" || std::cin.eof())
+        return ;
     std::cout << "Last Name : ";
     std::getline(std::cin, lastName);
+    if (lastName == "" || std::cin.eof())
+        return ;
     std::cout << "NickName : ";
     std::getline(std::cin, nickName);
+    if (nickName == "" || std::cin.eof())
+        return ;
     std::cout << "Phone Number : ";
     std::getline(std::cin, phoneNumber);
+    if (phoneNumber == "" || std::cin.eof())
+        return ;
     std::cout << "Darkest Secret : ";
     std::getline(std::cin, darkestSecret);
+    if (darkestSecret == "" || std::cin.eof())
+        return ;
     memberInfo[indexNumber % 8].setFirstName(firstName);
     memberInfo[indexNumber % 8].setLastName(lastName);
     memberInfo[indexNumber % 8].setNickName(nickName);
@@ -72,6 +82,8 @@ void PhoneBook::SearchMember() {
     }
     std::cout << "Enter Index : ";
     std::getline(std::cin, indexTmp);
+    if (std::cin.eof())
+        return ;
     if (indexTmp.length() == 1 && indexTmp[0] >= '1' && indexTmp[0] <= '8' && indexTmp[0] <= ('0' + indexNumber))
         printMember(memberInfo[std::atoi(indexTmp.c_str()) - 1]);
     else
