@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:04:56 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/16 11:05:43 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/16 20:16:57 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ PhoneBook::~PhoneBook(void) {}
 void PhoneBook::AddContact() {
     std::string firstName, lastName, nickName, phoneNumber, darkestSecret;
 
-    std::cout << "Index : " << (indexNumber + 1) % 8 << std::endl;
+    std::cout << "Index : " << (indexNumber % 8) + 1 << std::endl;
     std::cout << "First Name : ";
     std::getline(std::cin, firstName);
     if (firstName == "" || std::cin.eof())
@@ -51,20 +51,33 @@ void PhoneBook::AddContact() {
     indexNumber++;
 }
 
+static std::string printCompressInfo(std::string Info) {
+    int infoLength = Info.length();
+    std::string ret;
+
+    if (infoLength >= 10) {
+        ret = Info.substr(0, 9);
+        ret.push_back('.');
+    }
+    else
+        ret = Info;
+    return ret;
+}
+
 static void printContact(Contact memberInfo, int i) {
-	std::cout << "|";
+    std::cout << "|";
     std::cout << std::setfill(' ') << std::setw(10);
-	std::cout << i + 1;
-	std::cout << "|";
+    std::cout << i + 1;
+    std::cout << "|";
     std::cout << std::setfill(' ') << std::setw(10);
-	std::cout << memberInfo.getFirstName();
-	std::cout << "|";
+    std::cout << printCompressInfo(memberInfo.getFirstName());
+    std::cout << "|";
     std::cout << std::setfill(' ') << std::setw(10);
-	std::cout << memberInfo.getLastName();
-	std::cout << "|";
+    std::cout << printCompressInfo(memberInfo.getLastName());
+    std::cout << "|";
     std::cout << std::setfill(' ') << std::setw(10);
-	std::cout << memberInfo.getNickName();
-	std::cout << "|\n";
+    std::cout << printCompressInfo(memberInfo.getNickName());
+    std::cout << "|\n";
 }
 
 static void printMember(Contact memberInfo) {
