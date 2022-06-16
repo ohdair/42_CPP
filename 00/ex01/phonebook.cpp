@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:04:56 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/15 16:57:34 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:05:43 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ void PhoneBook::AddContact() {
     std::getline(std::cin, darkestSecret);
     if (darkestSecret == "" || std::cin.eof())
         return ;
-    memberInfo[indexNumber % 8].setFirstName(firstName);
+    memberInfo[indexNumber % 8].setFirstName(firstName
+    );
     memberInfo[indexNumber % 8].setLastName(lastName);
     memberInfo[indexNumber % 8].setNickName(nickName);
     memberInfo[indexNumber % 8].setPhoneNumber(phoneNumber);

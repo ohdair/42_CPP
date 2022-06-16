@@ -6,13 +6,16 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 11:11:35 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/15 16:13:10 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:22:00 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
-#include "contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
+
+# include <iostream>
+# include <iomanip>
+# include "contact.hpp"
 
 class PhoneBook {
     private :
@@ -24,3 +27,5 @@ class PhoneBook {
      void   SearchMember();
      ~PhoneBook();
 };
+
+#endif

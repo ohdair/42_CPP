@@ -6,12 +6,12 @@
 #    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/14 08:00:03 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/15 16:12:31 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/06/16 11:13:04 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC		=	g++
-CFLAGS	=	-Wall -Wextra -Werror -std=c++98
+CXX		=	c++
+CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	phonebook.cpp \
 			contact.cpp \
 			main.cpp
@@ -26,10 +26,10 @@ all : $(TARGET)
 
 $(TARGET) : $(OBJS)
 	@printf "$(LF)CPP MODULE $(SUBJECT): $(TARGET)\n"
-	@$(CC) $(OBJS) $(CFLAGS) -o $(TARGET)
+	@$(CXX) $(OBJS) $(CXXFLAGS) -o $(TARGET)
 
 %.o : %.cpp
-	@$(CC) $(CFLAGS) -c -o $@ $< -I ./
+	@$(CXX) $(CXXFLAGS) -c -o $@ $< 
 
 clean :
 	@printf "$(LF)Deleting $(TARGET)...\n"

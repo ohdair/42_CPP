@@ -6,11 +6,14 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 09:49:05 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/14 13:24:56 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/16 11:22:38 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
+
+# include <string>
 
 class Contact {
     private : 
@@ -33,3 +36,5 @@ class Contact {
         std::string getDarkestSecret();
         ~Contact();
 };
+
+#endif
