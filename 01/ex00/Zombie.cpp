@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 11:11:35 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/16 20:41:37 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/06/17 13:33:23 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/06/20 07:31:18 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <iomanip>
-# include "contact.hpp"
+void Zombie::announce(void) const {
+    std::cout << zombieName << "\e[90m : "<< "\e[93mBraiiiiiiinnnzzzZ...\e[m" << std::endl;
+}
 
-class PhoneBook {
-    private :
-        Contact memberInfo[8];
-        int indexNumber;
-    public :
-     PhoneBook();
-     void   AddContact();
-     void   SearchMember();
-     ~PhoneBook();
+Zombie::Zombie(std::string s): zombieName(s) {
+    announce();
 };
 
-#endif
+Zombie::~Zombie() {
+    std::cout << zombieName << "\e[90m : "<< "\e[93mis Buuuuu...\e[m" << std::endl;
+};

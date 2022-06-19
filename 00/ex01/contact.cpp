@@ -6,19 +6,13 @@
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 10:18:23 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/15 13:35:07 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/17 14:32:22 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "contact.hpp"
 
-Contact::Contact() {
-    _firstName = "";
-    _lastName = "";
-    _nickName = "";
-    _phoneNumber = "";
-    _darkestSecret = "";
-}
+Contact::Contact() {}
 
 Contact::~Contact(void) {}
 

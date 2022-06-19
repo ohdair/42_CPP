@@ -5,27 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 13:26:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/17 14:51:18 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/06/17 17:19:11 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/06/20 08:01:03 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "phonebook.hpp"
-#include "phonebook.hpp"
+#include "Zombie.hpp"
 
 int main() {
-    std::string input;
-    PhoneBook pb;
-
-    while (1) {
-        std::cout << "Available commands: ADD, SEARCH, EXIT\nInput command: ";
-        std::getline(std::cin, input);
-        if (input == "EXIT" || std::cin.eof()) break;
-        else if (input == "ADD") pb.AddContact();
-        else if (input == "SEARCH") pb.SearchMember();
-        else std::cout << "\e[91m[" << input << "] is invalid command!!\e[m\n";
-        if (std::cin.eof())
-            break ;
+    Zombie* horde;
+    int hordeNumber = 10;
+    
+    horde = zombieHorde(hordeNumber, "Dark Seeker");
+    for (int i = 0; i < hordeNumber; i++) {
+        horde[i].announce();
     }
-    std::cout << "\e[93mExit\e[m" << std::endl;
+    delete [] horde;
+    horde = zombieHorde(0, "fail");
+    return (0);
 }

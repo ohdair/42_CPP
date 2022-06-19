@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 11:11:35 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/16 20:41:37 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/06/17 13:57:13 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/06/20 07:29:59 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Zombie.hpp"
 
-# include <iostream>
-# include <iomanip>
-# include "contact.hpp"
+int main(void)
+{
+    Zombie  stack_zombie("\e[96mStack Zombie");
+    Zombie  *heap_zombie = newZombie("\e[92mHeap Zombie");
 
-class PhoneBook {
-    private :
-        Contact memberInfo[8];
-        int indexNumber;
-    public :
-     PhoneBook();
-     void   AddContact();
-     void   SearchMember();
-     ~PhoneBook();
-};
-
-#endif
+    randomChump("\e[95mRandom Chump Zombie");
+    delete heap_zombie;
+    return (0);
+}
