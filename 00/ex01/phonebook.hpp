@@ -18,14 +18,14 @@
 # include "contact.hpp"
 
 class PhoneBook {
+    public :
+        PhoneBook();
+        void   AddContact();
+        void   SearchMember();
+        ~PhoneBook();
     private :
         Contact memberInfo[8];
         int indexNumber;
-    public :
-     PhoneBook();
-     void   AddContact();
-     void   SearchMember();
-     ~PhoneBook();
 };
 
 #endif

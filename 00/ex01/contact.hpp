@@ -16,12 +16,6 @@
 # include <string>
 
 class Contact {
-    private : 
-        std::string _firstName;
-        std::string _lastName;
-        std::string _nickName;
-        std::string _phoneNumber;
-        std::string _darkestSecret;
     public :
         Contact();
         void setFirstName(std::string fn);
@@ -35,6 +29,12 @@ class Contact {
         void setDarkestSecret(std::string ds);
         std::string getDarkestSecret();
         ~Contact();
+    private : 
+        std::string _firstName;
+        std::string _lastName;
+        std::string _nickName;
+        std::string _phoneNumber;
+        std::string _darkestSecret;
 };
 
 #endif
