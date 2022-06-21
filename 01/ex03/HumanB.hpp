@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:50:03 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/20 12:50:03 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:39:12 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 
 class HumanB {
     public:
-        HumanB(std::string name, Weapon &weapon);
+        HumanB(std::string name);
         ~HumanB(void);
 
         void attack(void) const;
-        Weapon &getWeapon(void) const;
-        void setWeapon(Weapon &newWeapon);
+        Weapon& getWeapon(void) const;
+        void setWeapon(Weapon& newWeapon);
     private:
         std::string name;
-        Weapon &weapon;
-}
+        Weapon *weapon;
+};
 
 #endif

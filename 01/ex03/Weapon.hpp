@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:08:00 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/20 12:08:00 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/21 18:50:58 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 class Weapon {
     public:
         Weapon(void);
-        Weapon(std::string weaponName);
-        void setType(std::string weaponName);
+        Weapon(std::string weapon);
+        void setType(std::string weapon);
         std::string getType(void) const;
     private:
         std::string weapon;
-}
+};
 
 #endif

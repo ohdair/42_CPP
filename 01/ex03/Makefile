@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 12:06:03 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/20 12:06:03 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/06/21 19:15:13 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,9 @@ CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS	=	main.cpp \
 			HumanA.cpp \
 			HumanB.cpp \
-			Weapon
+			Weapon.cpp
 OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	StringPointer
+TARGET	=	GrabWeapon
 SUBJECT	=	01
 
 LF			=	\e[1K\r$(NO_COLOR)

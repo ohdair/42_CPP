@@ -3,28 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 12:12:30 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/20 12:12:30 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/06/21 19:29:57 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon(void) {
-    weapon = "Only hand"
+Weapon::Weapon(void) {}
+
+Weapon::Weapon(std::string weapon) : weapon(weapon) {}
+
+void Weapon::setType(std::string weapon) {
+    this->weapon = weapon;
 }
 
-Weapon::Weapon(std::string weapon) {
-    weapon = weapon;
-}
-
-void setType(std::string weapon) {
-    // "" (공백도 입력이 된다면 맨 주먹으로 세팅)
-    weapon = weapon;
-}
-
-std::string getType(void) const {
+std::string Weapon::getType(void) const {
     return weapon;
 }
