@@ -3,19 +3,19 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
+#    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 08:25:08 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/20 08:26:11 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/10 16:08:49 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX		=	c++
+CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	main.cpp
-OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	StringPointer
-SUBJECT	=	01
+SRCS		=	main.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+TARGET		=	StringPointer
+SUBJECT		=	01
 
 LF			=	\e[1K\r$(NO_COLOR)
 CRLF		=	\n$(LF)

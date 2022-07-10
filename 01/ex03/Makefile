@@ -3,22 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
+#    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 12:06:03 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/21 19:15:13 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/10 16:10:04 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX		=	c++
+CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	main.cpp \
-			HumanA.cpp \
-			HumanB.cpp \
-			Weapon.cpp
-OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	GrabWeapon
-SUBJECT	=	01
+SRCS		=	main.cpp \
+				HumanA.cpp \
+				HumanB.cpp \
+				Weapon.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+TARGET		=	GrabWeapon
+SUBJECT		=	01
 
 LF			=	\e[1K\r$(NO_COLOR)
 CRLF		=	\n$(LF)

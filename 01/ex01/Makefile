@@ -3,21 +3,21 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+         #
+#    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/17 17:16:12 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/20 08:07:19 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/10 16:10:38 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX		=	c++
+CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	Zombie.cpp \
-			zombieHorde.cpp \
-			main.cpp
-OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	ZombieHorde
-SUBJECT	=	01
+SRCS		=	Zombie.cpp \
+				zombieHorde.cpp \
+				main.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+TARGET		=	ZombieHorde
+SUBJECT		=	01
 
 LF			=	\e[1K\r$(NO_COLOR)
 CRLF		=	\n$(LF)

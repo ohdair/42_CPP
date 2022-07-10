@@ -6,16 +6,16 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/20 16:53:34 by jaewpark          #+#    #+#              #
-#    Updated: 2022/06/20 16:53:34 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/10 16:08:24 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX		=	c++
+CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS	=	main.cpp
-OBJS	=	$(SRCS:.cpp=.o)
-TARGET	=	ReplaceString
-SUBJECT	=	01
+SRCS		=	main.cpp
+OBJS		=	$(SRCS:.cpp=.o)
+TARGET		=	ReplaceString
+SUBJECT		=	01
 
 LF			=	\e[1K\r$(NO_COLOR)
 CRLF		=	\n$(LF)

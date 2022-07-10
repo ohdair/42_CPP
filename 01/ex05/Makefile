@@ -5,19 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/06/17 13:56:39 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/10 16:10:43 by jaewpark         ###   ########.fr        #
+#    Created: 2022/07/10 16:04:42 by jaewpark          #+#    #+#              #
+#    Updated: 2022/07/10 16:08:08 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS		=	Zombie.cpp \
-				newZombie.cpp \
-				randomChump.cpp \
-				main.cpp
+SRCS		=	main.cpp \
+				Harl.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-TARGET		=	Zombie
+TARGET		=	Harl
 SUBJECT		=	01
 
 LF			=	\e[1K\r$(NO_COLOR)
