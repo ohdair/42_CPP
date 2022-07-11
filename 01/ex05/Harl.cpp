@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 16:45:46 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/10 19:28:58 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/11 11:18:20 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,21 @@ void Harl::complain(std::string level)
     void (Harl::*func[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
-    std::string *pick = std::find(levels, levels + 4, level);
-    if (pick == levels + 4) {
-        std::cerr << "Wrong complain! Try again!" << std::endl;
-    } else {
-        (this->*func[pick - levels])();
+    /*
+    // algorithm header 사용할 수  있다면, 사용 가능 코드
+    //
+    // std::string *pick = std::find(levels, levels + 4, level);
+    // if (pick == levels + 4) {
+    //     std::cerr << "Wrong complain! Try again!" << std::endl;
+    // } else {
+    //     (this->*func[pick - levels])();
+    // }
+    */
+    for (int i = 0; i < 4; i++) {
+        if (levels[i] == level) {
+            (this->*func[i])();
+            return;
+        }
     }
+    std::cerr << "Wrong complain! Try again!" << std::endl;
 }
