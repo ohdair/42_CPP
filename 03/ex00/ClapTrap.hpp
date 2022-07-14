@@ -1,6 +1,7 @@
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
+# define COUT std::cout 
 # include <iostream>
 
 class ClapTrap
@@ -15,11 +16,14 @@ class ClapTrap
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
+
+        void getStatus();
+        █
     private:
-        std::string Name;
-        unsigned int HitPoints;
-        unsigned int EnergyPoints;
-        unsigned int AttackDamage;
+        std::string _name;
+        unsigned int _hp;
+        unsigned int _energy;
+        unsigned int _damage;
 };
 
 #endif
