@@ -6,16 +6,17 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 12:45:49 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/11 18:56:02 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/14 17:17:03 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
-				Fixed.cpp
+				Fixed.cpp \
+				ScavTrap.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-TARGET		=	ClapTrap
+TARGET		=	ScavTrap
 SUBJECT		=	03
 
 LF			=	\e[1K\r$(NO_COLOR)
