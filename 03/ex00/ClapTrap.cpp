@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 15:33:28 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/14 17:44:26 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& clone)
 void ClapTrap::attack(const std::string& target)
 {
     if (this->_hp == 0) {
+        this->_damage = 0;
         COUT << CLRRED << "💀 " << this->_name << " was already dead 💀\n" << CLREND;
     } else if (this->_energy == 0) {
         this->_no_energy = this->_damage;
@@ -92,9 +93,17 @@ void ClapTrap::beRepaired(unsigned int amount)
 
     if (this->_hp == 0) {
         COUT << CLRRED << "💀 " << this->_name << " was already dead 💀\n" << CLREND;
+    } else if (this->_energy == 0) {
+        COUT << "🚨 " << this->_name << " has no energy to attack 🚨\n";
     } else if (amount == 0) {
+        if (this->_energy > 0) {
+            --this->_energy;
+        }
         COUT << "😜 " << this->_name << " took a medicine 💊 that didn't work 😜\n";
     } else {
+        if (this->_energy > 0) {
+            --this->_energy;
+        }
         COUT << "💊 " << this->_name << " healed 💊\n";
         if (this->_hp < 30) {
             energyBar += CLRRED;
