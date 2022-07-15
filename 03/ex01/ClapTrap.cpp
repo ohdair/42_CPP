@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:16:29 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:29:45 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 unsigned int ClapTrap::_max_hp = 100;
 unsigned int ClapTrap::_max_energy = 10;
+unsigned int ClapTrap::_default_damage = 0;
 
 // Orthodox canonical class form
 ClapTrap::ClapTrap(std::string name) : _name(name)
 {
     this->_class_name = "ClapTrap";
-    this->_hp = _max_hp;
-    this->_energy = _max_energy;
-    this->_damage = 10;
+    this->_hp = this->_max_hp;
+    this->_energy = this->_max_energy;
+    this->_damage = this->_default_damage;
 
     std::string className = this->_class_name;
     COUT << CLRVIO << className << CLREND << " " << this->_name << " has been created\n";

@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:03:48 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 13:53:54 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:28:41 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ class ClapTrap
     private:
         static unsigned int _max_hp;
         static unsigned int _max_energy;
+        static unsigned int _default_damage;
 };
 
 #endif
