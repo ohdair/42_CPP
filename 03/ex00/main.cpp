@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:03:55 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 15:32:19 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:32:18 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main()
 {
-    // HP MAX : 100, ENERGY MAX : 10;
     std::string s1("jaewpark");
     std::string s2("juhur");
 
@@ -27,7 +26,6 @@ int main()
     claptrap2.getStatus();
 
     COUT << "-----------------------------\n\n";
-    claptrap1.setDamage(15);
     claptrap1.attack(s2);
     claptrap2.takeDamage(claptrap1.getDamage());
     
