@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:11:27 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:11:49 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:21:50 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class ScavTrap: public ClapTrap
         void guardGate(void);
     private:
         static unsigned int _max_energy;
+        static unsigned int _max_hp;
+        static unsigned int _default_damage;
 };
 
 #endif

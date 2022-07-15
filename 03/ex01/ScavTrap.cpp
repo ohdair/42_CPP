@@ -6,18 +6,22 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:16:54 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:16:14 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:23:43 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-unsigned int ScavTrap::_max_energy = 10;
+unsigned int ScavTrap::_max_hp = 100;
+unsigned int ScavTrap::_max_energy = 50;
+unsigned int ScavTrap::_default_damage = 20;
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     this->_class_name = "ScavTrap";
-
+    this->setHp(this->_max_hp);
+    this->setEnergy(this->_max_energy);
+    this->setDamage(this->_default_damage);
     std::string className = this->_class_name;
     COUT << CLRVIO << className << CLREND << " " << this->_name << " has been created\n";
 }
