@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:03:55 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:49:01 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:04:48 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,31 @@ int main()
 
     claptrap.getStatus();
     scavtrap.getStatus();
-    scavtrap.getStatus();
+    fragtrap.getStatus();
 
     COUT << "-----------------------------\n\n";
     claptrap.attack(s2);
     scavtrap.takeDamage(claptrap.getDamage());
     
     COUT << "-----------------------------\n\n";
-    claptrap.attack(s2);
-    scavtrap.takeDamage(claptrap.getDamage());
+    fragtrap.attack(s1);
+    claptrap.takeDamage(fragtrap.getDamage());
     
     COUT << "-----------------------------\n\n";
-    claptrap.setDamage(15);
+    claptrap.setDamage(60);
     claptrap.attack(s2);
     scavtrap.takeDamage(claptrap.getDamage());
 
     COUT << "-----------------------------\n\n";
-    claptrap.addEnergy();
-    claptrap.setDamage(30);
-    claptrap.attack(s2);
-    scavtrap.takeDamage(claptrap.getDamage());
+    scavtrap.setDamage(80);
+    scavtrap.attack(s3);
+    fragtrap.takeDamage(scavtrap.getDamage());
     
     COUT << "-----------------------------\n\n";
     scavtrap.guardGate();
 
     COUT << "-----------------------------\n\n";
-    scavtrap.attack(s1);
-    claptrap.takeDamage(scavtrap.getDamage());
+    fragtrap.highFiveGuys();
 
     COUT << "-----------------------------\n\n";
     scavtrap.setDamage(142);

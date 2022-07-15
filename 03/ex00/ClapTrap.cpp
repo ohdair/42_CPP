@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:24:37 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 15:54:39 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,18 @@ unsigned int ClapTrap::_max_energy = 10;
 unsigned int ClapTrap::_default_damage = 0;
 
 // Orthodox canonical class form
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(_max_hp), _energy(_max_energy), _damage(_default_damage) {}
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(_max_hp), _energy(_max_energy), _damage(_default_damage)
+{
+    COUT << this->_name << " has been created\n";
+}
 ClapTrap::ClapTrap(const ClapTrap& clone)
 {
     *this = clone;
 }
-ClapTrap::~ClapTrap(void) {}
+ClapTrap::~ClapTrap(void)
+{
+    COUT << this->_name << " is destroyed\n";
+}
 ClapTrap& ClapTrap::operator=(const ClapTrap& clone)
 {
     this->_name = clone._name;
@@ -82,7 +88,7 @@ void ClapTrap::takeDamage(unsigned int amount)
             COUT << energyBar << CLREND;
             for (unsigned int i = 0; i < 10 - (this->_hp / 10); i++)
                 COUT << "▌";
-            COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n\n";
+            COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n";
         }
     }
     COUT << "\n";

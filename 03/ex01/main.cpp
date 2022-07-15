@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:03:55 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:32:13 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 16:19:12 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,16 @@ int main()
     scavtrap.takeDamage(claptrap.getDamage());
     
     COUT << "-----------------------------\n\n";
+    claptrap.setDamage(30);
     claptrap.attack(s2);
     scavtrap.takeDamage(claptrap.getDamage());
     
     COUT << "-----------------------------\n\n";
-    claptrap.setDamage(15);
     claptrap.attack(s2);
     scavtrap.takeDamage(claptrap.getDamage());
 
     COUT << "-----------------------------\n\n";
     claptrap.addEnergy();
-    claptrap.setDamage(30);
     claptrap.attack(s2);
     scavtrap.takeDamage(claptrap.getDamage());
     

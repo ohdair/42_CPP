@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:53:55 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 16:34:06 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void ClapTrap::takeDamage(unsigned int amount)
             COUT << energyBar << CLREND;
             for (unsigned int i = 0; i < 10 - (this->_hp / 10); i++)
                 COUT << "▌";
-            COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n\n";
+            COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n";
         }
     }
     COUT << "\n";
@@ -163,12 +163,7 @@ void ClapTrap::setHp(unsigned int const amount)
 
 void ClapTrap::setEnergy(unsigned int const amount)
 {
-    if (amount > _max_energy) {
-        COUT << "MAX Energy is " << _max_energy << "\n";
-        this->_energy = _max_energy;
-    } else {
-        this->_energy = amount;
-    }
+    this->_energy = amount;
 }
 
 void ClapTrap::setDamage(unsigned int const amount)

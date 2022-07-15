@@ -6,15 +6,15 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 14:19:21 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:54:15 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 16:32:19 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 unsigned int FragTrap::_max_hp = 100;
-unsigned int FragTrap::_max_energy = 50;
-unsigned int FragTrap::_default_damage = 20;
+unsigned int FragTrap::_max_energy = 100;
+unsigned int FragTrap::_default_damage = 30;
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
@@ -67,5 +67,5 @@ void FragTrap::attack(const std::string& target)
 
 void FragTrap::highFiveGuys(void)
 {
-    COUT << "Who wants to do a high five with " << this->_name << " ?? 🖐\n\n";
+    COUT << CLRVIO << "Who wants to do a high five with " << this->_name << " ?? 🖐\n\n" << CLREND;
 }
