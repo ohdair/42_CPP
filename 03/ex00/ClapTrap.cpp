@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 17:44:26 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 10:13:15 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    std::string energyBar("");
-
     if (this->_hp == 0) {
         COUT << CLRRED << "💀 " << this->_name << " was already dead 💀\n" << CLREND;
     } else if (this->_energy == 0) {
@@ -104,38 +102,15 @@ void ClapTrap::beRepaired(unsigned int amount)
         if (this->_energy > 0) {
             --this->_energy;
         }
-        COUT << "💊 " << this->_name << " healed 💊\n";
-        if (this->_hp < 30) {
-            energyBar += CLRRED;
-        } else if (this->_hp < 60) {
-            energyBar += CLRYEL;
-        } else {
-            energyBar += CLRGRE;
-        }
-        for (unsigned int i = 0; i < (this->_hp / (unsigned int)10); i++)
-            energyBar += "▌";
-        COUT << energyBar << CLREND;
-        for (unsigned int i = 0; i < 10 - (this->_hp / (unsigned int)10); i++)
-            COUT << "▌";
-        COUT << " >>> Heal " << amount << " >>> ";
-        energyBar = "";
+        COUT << "💊 " << this->_name << " healed " << amount << " 💊\n";
+        this->draw(this->getHp());
+        COUT << CLRVIO << " >>> " << CLREND;
         if (this->_hp + amount >= _max_hp) {
             this->_hp = _max_hp;
         } else {
             this->_hp += amount;
         }
-        if (this->_hp < 30) {
-            energyBar += CLRRED;
-        } else if (this->_hp < 60) {
-            energyBar += CLRYEL;
-        } else {
-            energyBar += CLRGRE;
-        }
-        for (unsigned int i = 0; i < (this->_hp / (unsigned int)10); i++)
-            energyBar += "▌";
-        COUT << energyBar << CLREND;
-        for (unsigned int i = 0; i < 10 - (this->_hp / (unsigned int)10); i++)
-            COUT << "▌";
+        this->draw(this->getHp());
         COUT << "\n";
     }
     COUT << "\n";
@@ -154,28 +129,14 @@ void ClapTrap::addEnergy(void)
     }
 }
 
-void ClapTrap::getStatus(void) const
+void ClapTrap::getStatus(void)
 {
-    std::string energyBar;
-    std::string energyStat;
-
     COUT << "Name is " << this->_name << "\n";
     COUT << "Attack Damage is " << this->getDamage() << "\n";
     COUT << "Current Energy is " << this->getEnergy() << "\n";
-    if (this->_hp < 30) {
-        energyStat = CLRRED;
-    } else if (this->_hp < 60) {
-        energyStat = CLRYEL;
-    } else {
-        energyStat = CLRGRE;
-    }
-    COUT << "Current HP is  " << energyStat;
-    for (unsigned int i = 0; i < (this->_hp / 10); i++)
-        energyBar += "▌";
-    COUT << energyBar << CLREND;
-    for (unsigned int i = 0; i < 10 - (this->_hp / 10); i++)
-        COUT << "▌";
-    COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n\n";
+    COUT << "Current HP is  ";
+    this->draw(this->getHp());
+    COUT << "\n\n";
 }
 
 unsigned int ClapTrap::getHp(void) const { return this->_hp; }
@@ -205,6 +166,26 @@ void ClapTrap::setEnergy(unsigned int const amount)
 void ClapTrap::setDamage(unsigned int const amount)
 {
     this->_damage = amount;
+}
+
+void ClapTrap::draw(unsigned int hp)
+{
+    std::string energyBar("");
+    std::string energyStat;
+
+    if (hp < 30) {
+        energyStat = CLRRED;
+    } else if (hp < 60) {
+        energyStat = CLRYEL;
+    } else {
+        energyStat = CLRGRE;
+    }
+    for (unsigned int i = 0; i < (hp / 10); i++)
+        energyBar += "▌";
+    COUT << energyStat << energyBar << CLREND;
+    for (unsigned int i = 0; i < 10 - (hp / 10); i++)
+        COUT << "▌";
+    COUT << "  " << energyStat << hp << CLREND << "/" << this->getMaxHp();
 }
 
 unsigned int ClapTrap::getMaxHp(void)
