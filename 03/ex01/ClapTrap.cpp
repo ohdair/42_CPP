@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 17:16:57 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:16:29 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,29 @@ unsigned int ClapTrap::_max_hp = 100;
 unsigned int ClapTrap::_max_energy = 10;
 
 // Orthodox canonical class form
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(50), _energy(10), _damage(10) {}
+ClapTrap::ClapTrap(std::string name) : _name(name)
+{
+    this->_class_name = "ClapTrap";
+    this->_hp = _max_hp;
+    this->_energy = _max_energy;
+    this->_damage = 10;
+
+    std::string className = this->_class_name;
+    COUT << CLRVIO << className << CLREND << " " << this->_name << " has been created\n";
+}
 ClapTrap::ClapTrap(const ClapTrap& clone)
 {
     *this = clone;
+    this->_name = clone._name + " Copy";
+    COUT << CLRVIO << this->_class_name << CLREND << " " << this->_name << " has been created\n";
 }
-ClapTrap::~ClapTrap(void) {}
+ClapTrap::~ClapTrap(void)
+{
+    COUT << CLRVIO << this->_class_name << CLREND << " " << this->_name << " is destroyed\n";
+}
 ClapTrap& ClapTrap::operator=(const ClapTrap& clone)
 {
+    this->_class_name = clone._class_name;
     this->_name = clone._name;
     this->_energy = clone._energy;
     this->_hp = clone._hp;
@@ -42,13 +57,10 @@ void ClapTrap::attack(const std::string& target)
         this->_damage = 0;
         COUT << "🚨 " << this->_name << " has no energy to attack 🚨\n";
     } else {
-        if (this->_energy > 0) {
-            --this->_energy;
-        }
-        COUT << "🪓 " << this->_name << " attacked " << target << " 🪓\n";
+        --this->_energy;
+        COUT << "🪓 " << CLRVIO << this->_class_name << CLREND << " " << this->_name << " attacked " << target << " 🪓\n";
     }
-    COUT << "\n";
-    
+    COUT << "\n"; 
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -88,45 +100,24 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    std::string energyBar("");
-
     if (this->_hp == 0) {
         COUT << CLRRED << "💀 " << this->_name << " was already dead 💀\n" << CLREND;
+    } else if (this->_energy == 0) {
+        COUT << "🚨 " << this->_name << " has no energy to attack 🚨\n";
     } else if (amount == 0) {
+        --this->_energy;
         COUT << "😜 " << this->_name << " took a medicine 💊 that didn't work 😜\n";
     } else {
-        COUT << "💊 " << this->_name << " healed 💊\n";
-        if (this->_hp < 30) {
-            energyBar += CLRRED;
-        } else if (this->_hp < 60) {
-            energyBar += CLRYEL;
-        } else {
-            energyBar += CLRGRE;
-        }
-        for (unsigned int i = 0; i < (this->_hp / (unsigned int)10); i++)
-            energyBar += "▌";
-        COUT << energyBar << CLREND;
-        for (unsigned int i = 0; i < 10 - (this->_hp / (unsigned int)10); i++)
-            COUT << "▌";
-        COUT << " >>> Heal " << amount << " >>> ";
-        energyBar = "";
+        --this->_energy;
+        COUT << "💊 " << this->_name << " healed " << amount << " 💊\n";
+        this->draw(this->getHp());
+        COUT << CLRVIO << " >>> " << CLREND;
         if (this->_hp + amount >= _max_hp) {
             this->_hp = _max_hp;
         } else {
             this->_hp += amount;
         }
-        if (this->_hp < 30) {
-            energyBar += CLRRED;
-        } else if (this->_hp < 60) {
-            energyBar += CLRYEL;
-        } else {
-            energyBar += CLRGRE;
-        }
-        for (unsigned int i = 0; i < (this->_hp / (unsigned int)10); i++)
-            energyBar += "▌";
-        COUT << energyBar << CLREND;
-        for (unsigned int i = 0; i < 10 - (this->_hp / (unsigned int)10); i++)
-            COUT << "▌";
+        this->draw(this->getHp());
         COUT << "\n";
     }
     COUT << "\n";
@@ -145,28 +136,14 @@ void ClapTrap::addEnergy(void)
     }
 }
 
-void ClapTrap::getStatus(void) const
+void ClapTrap::getStatus(void)
 {
-    std::string energyBar;
-    std::string energyStat;
-
     COUT << "Name is " << this->_name << "\n";
     COUT << "Attack Damage is " << this->getDamage() << "\n";
     COUT << "Current Energy is " << this->getEnergy() << "\n";
-    if (this->_hp < 30) {
-        energyStat = CLRRED;
-    } else if (this->_hp < 60) {
-        energyStat = CLRYEL;
-    } else {
-        energyStat = CLRGRE;
-    }
-    COUT << "Current HP is  " << energyStat;
-    for (unsigned int i = 0; i < (this->_hp / 10); i++)
-        energyBar += "▌";
-    COUT << energyBar << CLREND;
-    for (unsigned int i = 0; i < 10 - (this->_hp / 10); i++)
-        COUT << "▌";
-    COUT << "  " << energyStat << this->_hp << CLREND << "/" << _max_hp << "\n\n";
+    COUT << "Current HP is  ";
+    this->draw(this->getHp());
+    COUT << "\n\n";
 }
 
 unsigned int ClapTrap::getHp(void) const { return this->_hp; }
@@ -196,6 +173,26 @@ void ClapTrap::setEnergy(unsigned int const amount)
 void ClapTrap::setDamage(unsigned int const amount)
 {
     this->_damage = amount;
+}
+
+void ClapTrap::draw(unsigned int hp)
+{
+    std::string energyBar("");
+    std::string energyStat;
+
+    if (hp < 30) {
+        energyStat = CLRRED;
+    } else if (hp < 60) {
+        energyStat = CLRYEL;
+    } else {
+        energyStat = CLRGRE;
+    }
+    for (unsigned int i = 0; i < (hp / 10); i++)
+        energyBar += "▌";
+    COUT << energyStat << energyBar << CLREND;
+    for (unsigned int i = 0; i < 10 - (hp / 10); i++)
+        COUT << "▌";
+    COUT << "  " << energyStat << hp << CLREND << "/" << this->getMaxHp();
 }
 
 unsigned int ClapTrap::getMaxHp(void)

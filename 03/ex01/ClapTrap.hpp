@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:03:48 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 17:16:58 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 13:53:54 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define CLRRED "\e[91m"
 # define CLRGRE "\e[92m"
 # define CLRYEL "\e[93m"
+# define CLRVIO "\e[95m"
 # define CLREND "\e[0m"
 
 # include <iostream>
@@ -36,7 +37,7 @@ class ClapTrap
         void beRepaired(unsigned int amount);
 
         void addEnergy(void);
-        void getStatus(void) const;
+        void getStatus(void);
         unsigned int getHp(void) const;
         unsigned int getEnergy(void) const;
         unsigned int getDamage(void) const;
@@ -44,14 +45,17 @@ class ClapTrap
         void setEnergy(unsigned int const amout);
         void setDamage(unsigned int const amout);
     
+        void draw(unsigned int hp);
+        
         static unsigned int getMaxHp(void);
-    private:
+    protected:
         std::string _name;
+        std::string _class_name;
         unsigned int _hp;
         unsigned int _energy;
         unsigned int _damage;
         unsigned int _no_energy;
-
+    private:
         static unsigned int _max_hp;
         static unsigned int _max_energy;
 };

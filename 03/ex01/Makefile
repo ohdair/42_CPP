@@ -6,14 +6,14 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 12:45:49 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/14 17:17:03 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/15 14:07:36 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
-				Fixed.cpp \
+				ClapTrap.cpp \
 				ScavTrap.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 TARGET		=	ScavTrap

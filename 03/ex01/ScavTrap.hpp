@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 17:11:27 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/14 17:16:15 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 14:11:49 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 class ScavTrap: public ClapTrap
 {
     public:
-        ScavTrap();
+        ScavTrap(std::string name);
         ScavTrap(const ScavTrap& clone);
         ~ScavTrap();
         ScavTrap& operator=(const ScavTrap& clone);
 
-        void guardGate();
+        void attack(const std::string& target);
+        void guardGate(void);
     private:
+        static unsigned int _max_energy;
 };
 
 #endif
