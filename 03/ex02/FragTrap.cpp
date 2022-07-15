@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 17:16:54 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 14:56:02 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/07/15 14:19:21 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/07/15 14:54:15 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-unsigned int ScavTrap::_max_hp = 100;
-unsigned int ScavTrap::_max_energy = 50;
-unsigned int ScavTrap::_default_damage = 20;
+unsigned int FragTrap::_max_hp = 100;
+unsigned int FragTrap::_max_energy = 50;
+unsigned int FragTrap::_default_damage = 20;
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-    this->_class_name = "ScavTrap";
+    this->_class_name = "FragTrap";
     this->_hp = this->_max_hp;
     this->_energy = this->_max_energy;
     this->_damage = this->_default_damage;
@@ -26,19 +26,19 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     COUT << CLRVIO << className << CLREND << " " << this->_name << " has been created\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap& clone) : ClapTrap(clone._name)
+FragTrap::FragTrap(const FragTrap& clone) : ClapTrap(clone._name)
 {
     *this = clone;
     this->_name = clone._name + " Copy";
     COUT << CLRVIO << this->_class_name << CLREND << " " << this->_name << " has been created\n";
 }
 
-ScavTrap::~ScavTrap(void)
+FragTrap::~FragTrap(void)
 {
-    COUT << CLRVIO << "ScavTrap " << CLREND << this->_name << " is destroyed\n";
+    COUT << CLRVIO << "FragTrap " << CLREND << this->_name << " is destroyed\n";
 }
 
-ScavTrap& ScavTrap::operator=(const ScavTrap& clone)
+FragTrap& FragTrap::operator=(const FragTrap& clone)
 {
     this->_class_name = clone._class_name;
     this->_name = clone._name;
@@ -49,7 +49,7 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& clone)
     return *this;
 }
 
-void ScavTrap::attack(const std::string& target)
+void FragTrap::attack(const std::string& target)
 {
     if (this->_hp == 0) {
         COUT << CLRRED << "💀 " << this->_name << " was already dead 💀\n" << CLREND;
@@ -65,9 +65,7 @@ void ScavTrap::attack(const std::string& target)
     COUT << "\n"; 
 }
 
-void ScavTrap::guardGate(void)
+void FragTrap::highFiveGuys(void)
 {
-	COUT << CLRVIO << this->_class_name << CLREND << " " << this->_name << " has entered the Gate Keeper mode\n";
-	this->setEnergy(this->_max_energy);
-	COUT << CLRVIO << this->_class_name << CLREND << " " << this->_name << " has fully recovered his energy points!\n\n";
+    COUT << "Who wants to do a high five with " << this->_name << " ?? 🖐\n\n";
 }
