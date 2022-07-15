@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 11:04:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/15 10:13:15 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/15 10:52:48 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ unsigned int ClapTrap::_max_hp = 100;
 unsigned int ClapTrap::_max_energy = 10;
 
 // Orthodox canonical class form
-ClapTrap::ClapTrap(std::string name) : _name(name), _hp(50), _energy(10), _damage(10) {}
+ClapTrap::ClapTrap(std::string name) : _name(name), _hp(_max_hp), _energy(_max_energy), _damage(10) {}
 ClapTrap::ClapTrap(const ClapTrap& clone)
 {
     *this = clone;
