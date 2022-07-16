@@ -14,11 +14,28 @@
 #include <fstream>
 #include <string>
 
+std::string _replace_newLine(std::string target)
+{
+	std::string ret;
+	size_t idx;
+
+	while ((idx = target.find("\\n")) != std::string::npos)
+	{
+		ret += target.substr(0, idx) + "\n";
+		target.erase(0, idx + 2);
+	}
+	ret += target;
+	return ret;
+}
+
 std::string replace_string(std::string file_name, std::string target, std::string replace)
 {
 	std::string line;
+	std::string allLine;
 	std::string ret;
 	std::ifstream ifs;
+	std::string newTarget(_replace_newLine(target));
+	std::string newReplace(_replace_newLine(replace));
 
 	ifs.open(file_name);
 	if (ifs.fail())
@@ -27,15 +44,16 @@ std::string replace_string(std::string file_name, std::string target, std::strin
 	while (!ifs.eof())
 	{
 		std::getline(ifs, line);
-		size_t idx = 0;
-		while ((idx = line.find(target)) != std::string::npos)
-		{
-			ret += line.substr(0, idx) + replace;
-			line.erase(0, idx + target.length());
-		}
-		ret += line + "\n";
+		allLine += line + "\n";
 	}
-	ret = ret.substr(0, ret.size() - 1);
+	allLine = allLine.substr(0, ret.size() - 1);
+	size_t idx = 0;
+	while ((idx = allLine.find(newTarget)) != std::string::npos)
+	{
+		ret += allLine.substr(0, idx) + newReplace;
+		allLine.erase(0, idx + newTarget.length());
+	}
+	ret += allLine;
 	ifs.close();
 	return (ret);
 }
