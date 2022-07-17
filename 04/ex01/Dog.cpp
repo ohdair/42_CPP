@@ -17,6 +17,7 @@ Dog::Dog(void): Animal()
     std::string name("Dog");
     this->_type = CLRGRE + name + CLREND;
     std::cout << this->getType() << " was constructed\n";
+    this->brain = new Brain;
 }
 Dog::Dog(const Dog& dog): Animal()
 {
@@ -25,6 +26,7 @@ Dog::Dog(const Dog& dog): Animal()
 }
 Dog::~Dog(void)
 {
+    delete this->brain;
     std::cout << this->getType() << " is destroyed\n";
 }
 Dog& Dog::operator=(const Dog& dog)

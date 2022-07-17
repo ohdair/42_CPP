@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+ /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
@@ -15,12 +15,34 @@
 
 int main()
 {
-    const Animal* animal = new Animal();
-    const Animal* cat = new Cat();
+    // const Animal* animal = new Animal();
+    // const Animal* cat = new Cat();
 
-    cat->makeSound();
-    delete cat;
-    delete animal;
-    
+    // cat->makeSound();
+    // delete cat;
+    // delete animal;
+    // system("leaks Brain");
+
+    // const Animal* animals[20];
+    // for (int i = 0; i < 10; i++) {
+    //     std::cout << CLRVIO << i << " " << CLREND;
+    //     animals[i] = new Cat();
+    // }
+    // for (int i = 10; i < 20; i++) {
+    //     std::cout << CLRVIO << i << " " << CLREND;
+    //     animals[i] = new Dog();
+    // }
+    // for (int i = 0; i < 20; i++) {
+    //     std::cout << CLRVIO << i << " " << CLREND;
+    //     delete animals[i];
+    // }
+    // system("leaks Brain");
+
+    Cat & originCat;
+    Cat & copyCat;
+
+    copyCat = originCat;
+    std::cout << std::hex << originCat << std::endl;
+    std::cout << std::hex << copyCat << std::endl;
     return 0;
 }
