@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:39:21 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/13 16:45:59 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 10:50:46 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,25 +111,25 @@ Fixed Fixed::operator--(int)	// Postfix decrement operator.
 // min & max
 Fixed& Fixed::min(Fixed& valueX, Fixed& valueY)
 {
-	if (valueX < valueY)
+	if (valueX.value < valueY.value)
 		return valueX;
 	return valueY;
 }
 const Fixed& Fixed::min(const Fixed& valueX, const Fixed& valueY)
 {
-	if (valueX < valueY)
+	if (valueX.value < valueY.value)
 		return valueX;
 	return valueY;
 }
 Fixed& Fixed::max(Fixed& valueX, Fixed& valueY)
 {
-	if (valueX > valueY)
+	if (valueX.value > valueY.value)
 		return valueX;
 	return valueY;
 }
 const Fixed& Fixed::max(const Fixed& valueX, const Fixed& valueY)
 {
-	if (valueX > valueY)
+	if (valueX.value > valueY.value)
 		return valueX;
 	return valueY;
 }
