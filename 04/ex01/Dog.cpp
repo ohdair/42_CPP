@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:30:59 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/16 14:55:04 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:11:43 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,25 @@ Dog::Dog(void): Animal()
     std::cout << this->getType() << " was constructed\n";
     this->brain = new Brain;
 }
+
 Dog::Dog(const Dog& dog): Animal()
 {
-    // *this = dog;
-    this->_type = dog._type;
+    this->_type = dog.getType();
+    this->brain = new Brain(*dog.brain);
 }
+
 Dog::~Dog(void)
 {
     delete this->brain;
     std::cout << this->getType() << " is destroyed\n";
 }
+
 Dog& Dog::operator=(const Dog& dog)
 {
     this->_type = dog.getType();
-
+    if (this->brain)
+        delete this->brain;
+    this->brain = new Brain(*dog.brain);
     return *this;
 }
 

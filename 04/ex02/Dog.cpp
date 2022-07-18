@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/15 18:59:29 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/18 13:15:10 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/07/15 19:30:59 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/07/18 13:10:10 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
-Animal::Animal(void)
+Dog::Dog(void): Animal()
 {
-    std::string name("Animal");
-    this->_type = CLRVIO + name + CLREND;
+    std::string name("Dog");
+    this->_type = CLRGRE + name + CLREND;
     std::cout << this->getType() << " was constructed\n";
+    this->brain = new Brain;
 }
 
-Animal::Animal(const Animal& animal)
+Dog::Dog(const Dog& dog): Animal()
 {
-    *this = animal;
+    this->_type = dog.getType();
+    this->brain = new Brain(*dog.brain);
 }
 
-Animal::~Animal(void)
+Dog::~Dog(void)
 {
+    delete this->brain;
     std::cout << this->getType() << " is destroyed\n";
 }
 
-Animal& Animal::operator=(const Animal& animal)
+Dog& Dog::operator=(const Dog& dog)
 {
-    this->_type = animal._type;
-
+    this->_type = dog.getType();
+    if (this->brain)
+        delete this->brain;
+    this->brain = new Brain(*dog.brain);
     return *this;
 }
 
-void Animal::makeSound(void) const
+void Dog::makeSound(void) const
 {
-    std::cout << this->getType() << " is wailing \n";
-}
-
-std::string Animal::getType(void) const
-{
-    return this->_type;
+    std::cout << this->getType() << " is Bowwow 🐶\n";
 }

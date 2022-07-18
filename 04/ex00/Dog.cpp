@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 19:30:59 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/16 14:55:04 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:15:09 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,17 @@ Dog::Dog(void): Animal()
     this->_type = CLRGRE + name + CLREND;
     std::cout << this->getType() << " was constructed\n";
 }
+
 Dog::Dog(const Dog& dog): Animal()
 {
-    // *this = dog;
     this->_type = dog._type;
 }
+
 Dog::~Dog(void)
 {
     std::cout << this->getType() << " is destroyed\n";
 }
+
 Dog& Dog::operator=(const Dog& dog)
 {
     this->_type = dog.getType();

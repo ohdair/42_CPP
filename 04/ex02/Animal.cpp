@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 18:59:29 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/18 13:15:10 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:08:34 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,19 @@
 Animal::Animal(void)
 {
     std::string name("Animal");
-    this->_type = CLRVIO + name + CLREND;
+    this->_type = CLRAQU + name + CLREND;
     std::cout << this->getType() << " was constructed\n";
 }
 
 Animal::Animal(const Animal& animal)
 {
-    *this = animal;
+    this->_type = animal.getType();
 }
 
 Animal::~Animal(void)
 {
-    std::cout << this->getType() << " is destroyed\n";
+    std::string name("Animal");
+    std::cout << CLRAQU << name << CLREND << " is destroyed\n";
 }
 
 Animal& Animal::operator=(const Animal& animal)
