@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:25:23 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/21 20:26:53 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 14:03:43 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void HumanB::attack(void) const {
     }
     else 
     {
-        std::cout << name << "주먹질" << std::endl;
+        std::cout << name << " attacks whith bare hands" << std::endl;
     }
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:19:11 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/20 08:01:03 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:57:24 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@ int main() {
     int hordeNumber = 10;
     
     horde = zombieHorde(hordeNumber, "Dark Seeker");
-    for (int i = 0; i < hordeNumber; i++) {
-        horde[i].announce();
-    }
     delete [] horde;
     horde = zombieHorde(0, "fail");
     return (0);

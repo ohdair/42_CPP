@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombiehorde.cpp                                    :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaewpark <jaewpark@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 17:19:22 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/06/20 07:58:40 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/18 13:57:19 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ Zombie* zombieHorde(int N, std::string name) {
     }
     for (int i = 0; i < N; i++) {
         horde[i].setName(name);
+        horde[i].announce();
     }
     return (horde);
 }
