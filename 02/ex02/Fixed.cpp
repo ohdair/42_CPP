@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:39:21 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/18 10:50:46 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:04:35 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ Fixed& Fixed::operator++()	// Prefix increment operator.
 Fixed Fixed::operator++(int)	// Postfix increment operator.
 {
 	Fixed temp = *this;
-	++*this;
+	++(this->value);
 	return temp;
 }
 Fixed& Fixed::operator--()	// Prefix decrement operator.
@@ -104,7 +104,7 @@ Fixed& Fixed::operator--()	// Prefix decrement operator.
 Fixed Fixed::operator--(int)	// Postfix decrement operator.
 {
 	Fixed temp = *this;
-	--*this;
+	--(this->value);
 	return temp;
 }
 

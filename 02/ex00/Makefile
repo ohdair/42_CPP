@@ -6,7 +6,7 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/11 12:45:49 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/11 18:56:02 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/19 16:08:00 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ clean :
 fclean : clean
 	@rm -rf $(TARGET)
 
-re : fclean all
+re : fclean all phony

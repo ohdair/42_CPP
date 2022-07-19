@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 18:39:21 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/11 20:41:09 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/19 16:05:31 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Fixed::Fixed(const float value) : value((int)roundf(value * (1 << Fixed::bit)))
 Fixed::Fixed(const Fixed& fixed)
 {
 	std::cout << "Copy constructor called" << std::endl;
-    *this = fixed;
+    this->value = fixed.value;
 }
 
 Fixed::~Fixed(void)
