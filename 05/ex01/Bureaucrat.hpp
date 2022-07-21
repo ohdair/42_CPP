@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 12:32:26 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:32:23 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <iostream>
 # include <exception>
 # include <string>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -56,6 +57,9 @@ class Bureaucrat
             public:
             const char* what() const throw ();
         };
+
+        // ex01
+        void signForm(Form& form);
     private:
         std::string name;
         int grade;

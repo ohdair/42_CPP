@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/19 09:16:03 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/19 09:16:06 by jaewpark         ###   ########.fr        #
+#    Created: 2022/07/19 09:15:57 by jaewpark          #+#    #+#              #
+#    Updated: 2022/07/20 12:48:24 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,13 +14,11 @@
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
-				Animal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				Brain.cpp 
+				Bureaucrat.cpp \
+				Foam.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-TARGET		=	Brain
-SUBJECT		=	04
+TARGET		=	Foam
+SUBJECT		=	05
 
 LF			=	\e[1K\r$(NO_COLOR)
 CRLF		=	\n$(LF)

@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:04 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 12:31:38 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/20 13:38:51 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,16 @@ void Bureaucrat::setGrade(const int grade)
         throw (Bureaucrat::GradeTooHighException());
     } else {
         this->grade = grade;
+    }
+}
+
+void Bureaucrat::signForm(Form& form)
+{
+    try {
+        form.beSigned(*this);
+        std::cout << this->getName() << " signed " << form << "\n";
+    } catch (Form::Exception& e){
+        std::cout << this->getName() << " couldn't sign " << form << " because " << e.what() << "\n";
     }
 }
 
