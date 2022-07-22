@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 13:32:23 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/22 10:41:45 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <exception>
 # include <string>
 # include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -46,13 +48,13 @@ class Bureaucrat
             virtual const char* what() const throw ();
         };
 
-        class GradeTooHighException : virtual public Exception
+        class GradeTooHighException : public Exception
         {
             public:
             const char* what() const throw ();
         };
 
-        class GradeTooLowException : virtual public Exception
+        class GradeTooLowException : public Exception
         {
             public:
             const char* what() const throw ();

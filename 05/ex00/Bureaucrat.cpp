@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:04 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 12:31:38 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:04:18 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int Bureaucrat::maxGrade = 1;
 int Bureaucrat::minGrade = 150;
 
-Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade) {}
+Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade)
+{
+    std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
+}
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
     if (grade > this->minGrade) {
@@ -24,6 +27,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
         throw (Bureaucrat::GradeTooLowException());
     } else {
         this->grade = grade;
+        std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
     }
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& origin)
@@ -31,7 +35,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& origin)
     this->name = origin.getName();
     this->grade = origin.getGrade();
 }
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat(void)
+{
+    std::cout << "Bureaucrat has beed destroyed" << std::endl;
+}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& origin)
 {
     this->name = origin.getName();

@@ -6,7 +6,7 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 09:15:57 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/20 12:48:24 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/22 09:51:36 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
 				Bureaucrat.cpp \
-				Foam.cpp
+				Form.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 TARGET		=	Foam
 SUBJECT		=	05

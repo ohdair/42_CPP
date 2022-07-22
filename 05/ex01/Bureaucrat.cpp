@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:04 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 13:38:51 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:04:13 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int Bureaucrat::maxGrade = 1;
 int Bureaucrat::minGrade = 150;
 
-Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade) {}
+Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade)
+{
+    std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
+}
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
     if (grade > this->minGrade) {
@@ -24,6 +27,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
         throw (Bureaucrat::GradeTooLowException());
     } else {
         this->grade = grade;
+        std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
     }
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& origin)
@@ -31,7 +35,10 @@ Bureaucrat::Bureaucrat(const Bureaucrat& origin)
     this->name = origin.getName();
     this->grade = origin.getGrade();
 }
-Bureaucrat::~Bureaucrat(void) {}
+Bureaucrat::~Bureaucrat(void)
+{
+    std::cout << "Bureaucrat has beed destroyed" << std::endl;
+}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& origin)
 {
     this->name = origin.getName();
@@ -76,9 +83,9 @@ void Bureaucrat::signForm(Form& form)
 {
     try {
         form.beSigned(*this);
-        std::cout << this->getName() << " signed " << form << "\n";
+        std::cout << CLRGRE << this->getName() << CLRYEL << " signed " << CLREND << form << "\n";
     } catch (Form::Exception& e){
-        std::cout << this->getName() << " couldn't sign " << form << " because " << e.what() << "\n";
+        std::cout << CLRGRE << this->getName() << CLRRED << " couldn't sign " << CLREND << form << CLRYEL << "because " << CLREND << e.what() << "\n";
     }
 }
 
@@ -108,6 +115,6 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat& bureaucrat)
 {
-    os << CLRYEL << bureaucrat.getName() << CLREND << ", bureaucrat grade " << CLRGRE << bureaucrat.getGrade() << CLREND << ".\n";
+    os << " " << CLRYEL << bureaucrat.getName() << CLREND << ", bureaucrat grade " << CLRGRE << bureaucrat.getGrade() << CLREND << ".\n";
     return os;
 }

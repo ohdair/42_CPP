@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:24 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/19 15:46:38 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/22 13:52:47 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,59 @@
 
 int main()
 {
-    Bureaucrat hummanA("jaewpark", 139);
-    Bureaucrat hummanB("polarBear", 3);
-    Bureaucrat hummanC;
+    	// Constructors
+	std::cout << std::endl;
+	std::cout << "CONSTRUCTING:" << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	Bureaucrat	bob("Bob", 1);
+	Bureaucrat	bill("Bill", 132);
 
-    std::cout << hummanA;
-    std::cout << hummanB;
-    std::cout << hummanC;
+	Bureaucrat & bob_ref = bob;
+	Bureaucrat & bill_ref = bill;
 
-    try{
-        hummanB.incrementGrade();
-        hummanB.incrementGrade();
-        hummanB.incrementGrade();
-        hummanB.incrementGrade();
-    } catch (Bureaucrat::Exception &e) {
-        std::cout << e.what();
-    }
-    
-    try {
-        hummanA.setGrade(12746891);
-        hummanA.setGrade(-3);
-    } catch (Bureaucrat::Exception &e) {
-        std::cout << e.what();
-    }
+	Form		a("A13", 4, 6);
+	Form		b("B97", 146, 135);
 
-    return 0;
+	// Create a Form with grades too low
+	try	{
+		Form	c("C46", 489, 1435);
+	} catch (Form::Exception &e) {
+		std::cout << "Constructor failure: " << e.what() << std::endl; //the grade is too low
+	}
+
+	// Create a grade with grades too high
+	try	{
+		Form	c("D143", -583, -800);
+	} catch (Form::Exception &e) {
+		std::cout << "Constructor failure: " << e.what() << std::endl; //the grade is too high
+	}
+	std::cout << std::endl;
+
+	// Sign forms
+	std::cout << std::endl;
+	std::cout << "SIGN FORMS:" << std::endl;
+	std::cout << "----------------------------" << std::endl;
+
+	// Sign OK
+	std::cout << "SIGN OK:" << std::endl;
+	bob_ref.signForm(a);
+	std::cout << "just showed its current status" << a << std::endl;
+	// a.setSigned(false);
+	std::cout << std::endl << std::endl;
+
+	// Sign KO
+	std::cout << "SIGN KO:" << std::endl;
+	bill_ref.signForm(a);
+	std::cout << "just showed its current status" << a <<  std::endl;
+	std::cout << std::endl << std::endl;
+
+	// Sign OK
+	std::cout << "SIGN OK:" << std::endl;
+	bob.signForm(b);
+	std::cout << "just showed its current status" << b << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "DESTRUCTORS:" << std::endl;
+	std::cout << "----------------------------" << std::endl;
+	return (0);
 }
