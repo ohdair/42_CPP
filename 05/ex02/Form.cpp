@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 12:48:11 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/23 17:40:52 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:47:51 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int Form::minGrade = 150;
 Form::Form(void) : name("Test Form"), gradeToSign(150), gradeToExecute(150), sign(false)
 {
     std::cout << CLRYEL << "Form" << CLREND << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
+    // std::cout << CLRYEL << "Form has been constructed" << CLREND << std::endl;
 }
 Form::Form(std::string fileName, int GradeToSign, int GradeToExecute) : name(fileName), gradeToSign(GradeToSign), gradeToExecute(GradeToExecute), sign(false)
 {
@@ -53,8 +54,6 @@ void Form::beSigned(Bureaucrat& bureaucrat)
     if (grade > this->gradeToSign)
     {
         throw (Form::GradeTooLowException());
-    } else if (this->sign == true) {
-        throw (Form::BeSignedFormException());
     } else {
         this->sign = true;
         std::cout << *this << "\nBureaucrat " << CLRGRE << bureaucrat.getName() << CLREND
@@ -89,6 +88,14 @@ const char* Form::GradeTooHighException::what() const throw()
 const char* Form::BeSignedFormException::what() const throw()
 {
     std::string error("Already be signed\n");
+    error.insert(0, CLRRED).append(CLREND);
+    const char *newError = error.c_str();
+	return (newError);
+};
+
+const char* Form::UnsignedFormException::what() const throw()
+{
+    std::string error("Cannot execute an unsigned form\n");
     error.insert(0, CLRRED).append(CLREND);
     const char *newError = error.c_str();
 	return (newError);

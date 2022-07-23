@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/20 12:32:26 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 13:42:00 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ class Bureaucrat
             const char* what() const throw ();
         };
     private:
-        std::string name;
+        const std::string name;
         int grade;
         static int maxGrade;
         static int minGrade;

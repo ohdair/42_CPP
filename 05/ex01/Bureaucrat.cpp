@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:04 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/22 14:04:13 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:20:03 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,19 @@ Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade)
 {
     std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
 }
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
     if (grade > this->minGrade) {
-        throw (Bureaucrat::GradeTooHighException());
-    } else if (grade < this->maxGrade) {
         throw (Bureaucrat::GradeTooLowException());
-    } else {
-        this->grade = grade;
-        std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
+    } else if (grade < this->maxGrade) {
+        throw (Bureaucrat::GradeTooHighException());
     }
+    std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& origin)
+Bureaucrat::Bureaucrat(const Bureaucrat& origin) : name(origin.getName())
 {
-    this->name = origin.getName();
     this->grade = origin.getGrade();
+    std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been copied" << CLREND << std::endl;
 }
 Bureaucrat::~Bureaucrat(void)
 {
@@ -41,7 +39,6 @@ Bureaucrat::~Bureaucrat(void)
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& origin)
 {
-    this->name = origin.getName();
     this->grade = origin.getGrade();
     return *this;
 }
@@ -84,7 +81,7 @@ void Bureaucrat::signForm(Form& form)
     try {
         form.beSigned(*this);
         std::cout << CLRGRE << this->getName() << CLRYEL << " signed " << CLREND << form << "\n";
-    } catch (Form::Exception& e){
+    } catch (Form::Exception& e) {
         std::cout << CLRGRE << this->getName() << CLRRED << " couldn't sign " << CLREND << form << CLRYEL << "because " << CLREND << e.what() << "\n";
     }
 }

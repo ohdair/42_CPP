@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/23 14:04:01 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:16:51 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,9 @@ class Bureaucrat
 
         // ex01
         void signForm(Form& form);
+
+        // ex02
+        void executeForm(Form const & form);
     private:
         const std::string name;
         int grade;

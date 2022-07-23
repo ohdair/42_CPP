@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 12:48:07 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/23 14:30:51 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 15:38:00 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,16 @@ class Form
             public:
             const char* what() const throw ();
         };
+        
+        // ex02
+        class UnsignedFormException : public Exception
+        {
+            public:
+            const char* what() const throw ();
+        };
+        
+        // ex02
+        virtual void execute(Bureaucrat const & executor) const = 0;
     private:
         const std::string name;
         const int gradeToSign;

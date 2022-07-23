@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 09:17:04 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/23 14:00:41 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:21:45 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,16 @@ Bureaucrat::Bureaucrat(void) : name("anonymous"), grade(minGrade)
 {
     std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
 }
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
     if (grade > this->minGrade) {
         throw (Bureaucrat::GradeTooLowException());
     } else if (grade < this->maxGrade) {
         throw (Bureaucrat::GradeTooHighException());
+    } else {
+        this->grade = grade;
+        std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
     }
-    std::cout << "Bureaucrat\n" << *this << CLRYEL << "has been constructed" << CLREND << std::endl;
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& origin) : name(origin.getName())
 {
@@ -73,6 +75,28 @@ void Bureaucrat::setGrade(const int grade)
         throw (Bureaucrat::GradeTooHighException());
     } else {
         this->grade = grade;
+    }
+}
+
+// ex01
+void Bureaucrat::signForm(Form& form)
+{
+    try {
+        form.beSigned(*this);
+        std::cout << CLRGRE << this->getName() << CLRYEL << " signed " << CLREND << form << "\n";
+    } catch (Form::Exception& e) {
+        std::cout << CLRGRE << this->getName() << CLRRED << " couldn't sign " << CLREND << form << CLRYEL << "because " << CLREND << e.what() << "\n";
+    }
+}
+
+// ex02
+void Bureaucrat::executeForm(Form const & form)
+{
+    try {
+        form.execute(*this);
+        std::cout << CLRGRE << this->getName() << CLRYEL << " executed " << CLREND << form << "\n";
+    } catch (Form::Exception& e) {
+        std::cout << CLRGRE << this->getName() << CLRRED << " couldn't sign " << CLREND << form << CLRYEL << "because " << CLREND << e.what() << "\n";
     }
 }
 

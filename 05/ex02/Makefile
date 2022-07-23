@@ -6,7 +6,7 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/19 09:15:57 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/23 19:33:22 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/23 19:33:32 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,13 @@
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
-				Bureaucrat.cpp
+				Bureaucrat.cpp \
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-TARGET		=	Bureaucrat
+TARGET		=	Forms
 SUBJECT		=	05
 
 LF			=	\e[1K\r$(NO_COLOR)
