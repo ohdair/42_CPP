@@ -6,13 +6,14 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/23 19:32:50 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/23 19:33:51 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/24 17:16:28 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
-SRCS		=	main.cpp 
+SRCS		=	main.cpp \
+				Conversion.cpp
 OBJS		=	$(SRCS:.cpp=.o)
 TARGET		=	a.out
 SUBJECT		=	06
@@ -36,4 +37,6 @@ clean :
 fclean : clean
 	@rm -rf $(TARGET)
 
-re : fclean all phony
+re : fclean all
+
+.PHONY:	clean fclean re
