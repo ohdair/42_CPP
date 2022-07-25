@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:41:49 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/24 21:36:28 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/25 15:20:26 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ class Conversion
         std::string origin;
 };
 
-std::ostream &operator<<(std::ostream &os, const Conversion& conversion);
+// std::ostream &operator<<(std::ostream &os, const Conversion& conversion);
 
 #endif

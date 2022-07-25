@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 19:35:05 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/25 15:20:23 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/07/25 13:18:27 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/07/25 13:39:28 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "Data.hpp"
 
-int main(int argc, char** argv)
+Data::Data(void) : data("Default") {};
+Data::Data(std::string input) : data(input) {};
+Data::Data(const Data& data) : data(data.getData()) {};
+Data::~Data(void) {};
+Data& Data::operator=(const Data& data)
 {
-    if (argc != 2)
-        return 1;
-    std::string input = argv[1];
-    Conversion trans(input);
-    trans.convert(trans.getType());
-    return 0;
+    this->data = data.getData();
+    return *this;
+}
+
+std::string Data::getData(void) const 
+{
+    return this->data;
 }

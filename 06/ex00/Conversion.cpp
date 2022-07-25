@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 19:41:57 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/24 21:51:37 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:08:23 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void Conversion::convert(TYPE type)
     std::string errorFloat("");
     double retDouble = 0.0;
     std::string errorDouble("");
+    std::string setPrecision("");
 
     switch(type)
     {
@@ -143,12 +144,17 @@ void Conversion::convert(TYPE type)
             errorDouble = "impossible";
             break;
     }
+    /* double & float
+        (정수부 + 소수부).size <= 6, 소수부가 0과 동일하면 정수와 같이 표현됨
+        예시를 들어보면 1234.001은 1234로 표시가 되나 (int)1234와 같지 않음
+        (정수부 + 소수부).size > 6, 부동소수점으로 표현
+    */
     std::cout << "char: ";
     (errorChar == "") ? (std::cout << "'" << retChar << "'\n") : (std::cout << errorChar << "\n");
     std::cout << "int: ";
     ((errorInt == "") ? (std::cout << retInt) : (std::cout << errorInt)) << "\n";
     std::cout << "float: ";
-    ((errorFloat == "") ? (std::cout << std::fixed << std::setprecision(1) << retFloat) : (std::cout << errorFloat)) << "f\n";
+    ((errorFloat == "") ? (std::cout << std::fixed << std::setprecision(1) << retFloat << "f") : (std::cout << errorFloat)) << "\n";
     std::cout << "double: ";
     ((errorDouble == "") ? (std::cout << std::fixed << std::setprecision(1) << retDouble) : (std::cout << errorDouble)) << "\n";
 }
@@ -169,7 +175,12 @@ char Conversion::convertToChar(TYPE type)
 
 int Conversion::convertToInt(TYPE type)
 {
-    long tmp = strtol(this->origin.c_str(), NULL, 10);
+    double d = strtod(this->origin.c_str(), NULL);
+    long tmp = static_cast<long>(d);
+    
+    // double 에서 long으로 변환 하면서 nan 은 이미 int limit 을 벗어나는 수라고 확인을 하였습니다.
+    // if (std::numeric_limits<double>::quiet_NaN() == d)
+    //     throw Conversion::ImpossibleException();
     if (std::numeric_limits<int>::max() < tmp || std::numeric_limits<int>::min() > tmp)
         throw Conversion::ImpossibleException();
     if (type == CHAR)
@@ -179,16 +190,18 @@ int Conversion::convertToInt(TYPE type)
 
 float Conversion::convertToFloat(TYPE type)
 {
+    float tmp = static_cast<float>(strtod(this->origin.c_str(), NULL));
     if (type == CHAR)
         return static_cast<float>(this->origin[0]);
-    return (float)strtod(this->origin.c_str(), NULL);
+    return tmp;
 }
 
 double Conversion::convertToDouble(TYPE type)
 {
+    double tmp = strtod(this->origin.c_str(), NULL);
     if (type == CHAR)
         return static_cast<double>(this->origin[0]);
-    return strtod(this->origin.c_str(), NULL);
+    return tmp;
 }
 
 const char* Conversion::Exception::what() const throw()
@@ -206,17 +219,17 @@ const char* Conversion::NotPrintException::what() const throw()
 	return ("Non displayable");
 };
 
-std::ostream &operator<<(std::ostream &os, const Conversion& conversion)
-{
-    if (conversion.getType() == Conversion::CHAR)
-        os << "CHAR";
-    else if (conversion.getType() == Conversion::INT)
-        os << "INT";
-    else if (conversion.getType() == Conversion::FLOAT)
-        os << "FLOAT";
-    else if (conversion.getType() == Conversion::DOUBLE)
-        os << "DOUBLE";
-    else
-        os << "ERROR";
-    return os;
-}
+// std::ostream &operator<<(std::ostream &os, const Conversion& conversion)
+// {
+//     if (conversion.getType() == Conversion::CHAR)
+//         os << "CHAR";
+//     else if (conversion.getType() == Conversion::INT)
+//         os << "INT";
+//     else if (conversion.getType() == Conversion::FLOAT)
+//         os << "FLOAT";
+//     else if (conversion.getType() == Conversion::DOUBLE)
+//         os << "DOUBLE";
+//     else
+//         os << "ERROR";
+//     return os;
+// }

@@ -5,19 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 19:35:05 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/25 15:20:23 by jaewpark         ###   ########.fr       */
+/*   Created: 2022/07/25 13:29:16 by jaewpark          #+#    #+#             */
+/*   Updated: 2022/07/25 17:05:43 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Conversion.hpp"
+#include "Data.hpp"
+#include <cstdint>
 
-int main(int argc, char** argv)
+uintptr_t serialize(Data* ptr)
 {
-    if (argc != 2)
-        return 1;
-    std::string input = argv[1];
-    Conversion trans(input);
-    trans.convert(trans.getType());
+    return reinterpret_cast<uintptr_t>(ptr);
+}
+
+Data* deserialize(uintptr_t raw)
+{
+    return reinterpret_cast<Data *>(raw);
+}
+
+int main()
+{
+    Data temp("Hello World!");
+
+    std::uintptr_t sirial = serialize(&temp);
+    Data* data = deserialize(sirial);
+    std::cout << &temp << std::endl;
+    std::cout << data << std::endl;
+
+    std::cout << temp.getData() << std::endl;
+    std::cout << (*data).getData() << std::endl;
     return 0;
 }

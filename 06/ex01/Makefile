@@ -6,16 +6,16 @@
 #    By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/23 19:32:50 by jaewpark          #+#    #+#              #
-#    Updated: 2022/07/25 08:47:20 by jaewpark         ###   ########.fr        #
+#    Updated: 2022/07/25 13:52:54 by jaewpark         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			=	c++
 CXXFLAGS	=	-Wall -Wextra -Werror -std=c++98
 SRCS		=	main.cpp \
-				Conversion.cpp
+				Data.cpp
 OBJS		=	$(SRCS:.cpp=.o)
-TARGET		=	convert
+TARGET		=	a.out
 SUBJECT		=	06
 
 LF			=	\e[1K\r$(NO_COLOR)
