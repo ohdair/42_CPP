@@ -6,12 +6,12 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:29:16 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/25 17:05:43 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/27 17:13:10 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Data.hpp"
-#include <cstdint>
+#include <stdint.h>
 
 uintptr_t serialize(Data* ptr)
 {
