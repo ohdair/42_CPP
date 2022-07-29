@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:30:35 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/29 09:54:28 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/29 14:30:17 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ Array<T>::Array(const Array& array) : n(array.n)
     this->t = new T[n];
     for (unsigned int i = 0; i < n; i++)
         this->t[i] = array.t[i];
-    std::cout << "New array has been copyed\n" << *this << std::endl;
+    std::cout << "New array has been copied\n" << *this << std::endl;
 }
 
 template<typename T>
@@ -71,7 +71,7 @@ Array<T>& Array<T>::operator=(const Array<T>& array)
     for (unsigned int i = 0; i < n; i++)
         this->t[i] = array.t[i];
     return *this;
-    std::cout << "New array has been copyed\n" << *this << std::endl;
+    std::cout << "New array has been copied\n" << *this << std::endl;
 }
 
 template<typename T>
