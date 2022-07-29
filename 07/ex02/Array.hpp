@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:30:35 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/27 16:59:25 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/07/29 09:54:28 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,13 @@ Array<T>::Array(const Array& array) : n(array.n)
     this->t = new T[n];
     for (unsigned int i = 0; i < n; i++)
         this->t[i] = array.t[i];
+    std::cout << "New array has been copyed\n" << *this << std::endl;
 }
 
 template<typename T>
 Array<T>::~Array(void)
 {
+    std::cout << "Array has been constructed" << std::endl;
     delete [] this->t;
 }
 
@@ -69,6 +71,7 @@ Array<T>& Array<T>::operator=(const Array<T>& array)
     for (unsigned int i = 0; i < n; i++)
         this->t[i] = array.t[i];
     return *this;
+    std::cout << "New array has been copyed\n" << *this << std::endl;
 }
 
 template<typename T>
@@ -81,7 +84,7 @@ template<typename T>
 T& Array<T>::operator[](int i)
 {
     if (i < 0 || i >= static_cast<int>(this->n))
-        throw (std::exception());
+        throw (std::out_of_range("\e[91mOut of range\e[0m"));
     else
         std::cout << "T[" << i << "] : " << *(this->t + i) << std::endl;
     return (*(t + i));
