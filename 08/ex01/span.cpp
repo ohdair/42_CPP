@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 20:31:01 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/28 21:26:56 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:27:50 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,10 @@ unsigned int Span::getContents(void) const
 std::ostream & operator<<(std::ostream & o, Span const & span)
 {
 	std::cout << "Span contents\t: ";
-	for (unsigned int i = 0; i < span.getContents(); i++)
-		std::cout << (span.getVector())[i] << " ";
-	std::cout << std::endl;
+    if (!span.getVector().size())
+        std::cout << "Empty Span";
+    else
+        for (unsigned int i = 0; i < span.getContents(); i++)
+            std::cout << (span.getVector())[i] << " ";
 	return (o);
 }

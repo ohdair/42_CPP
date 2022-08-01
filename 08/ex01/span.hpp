@@ -6,7 +6,7 @@
 /*   By: jaewpark <jaewpark@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 20:13:48 by jaewpark          #+#    #+#             */
-/*   Updated: 2022/07/28 21:13:26 by jaewpark         ###   ########.fr       */
+/*   Updated: 2022/08/01 15:24:16 by jaewpark         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ class Span
         Span& operator=(const Span& span);
 
         void addNumber(int number);
+        template<typename T>
+        void addNumber(T begin, T end);
         int longestSpan();
         int shortestSpan();
 
@@ -39,5 +41,19 @@ class Span
 };
 
 std::ostream & operator<<(std::ostream & o, Span const & span);
+
+template<typename T>
+void Span::addNumber(T begin, T end)
+{
+    try {
+        if (std::distance(begin, end) + myVector.size() > this->getContents() ) {
+            throw (std::out_of_range("\e[91mMore than Span capacity\e[0m"));
+        }
+        while (begin != end)
+            myVector.push_back(*begin++);
+    } catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
+};
 
 #endif
